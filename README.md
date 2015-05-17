@@ -25,81 +25,53 @@ The super short version: Copy the `DragDrop` folder to the `plugins` directory o
 
 ##Usage Instructions
 
-*First*, add the plugin name to ckeditor's `extraPlugins` property inside of `config.js`:
+First, add the plugin name to ckeditor's `extraPlugins` property inside of `config.js`:
 
-  CKEDITOR.editorConfig = function( config ) {
-    // rest of config
-    config.extraPlugins = 'dragdrop';    <-- add the plugin
-  })
+    CKEDITOR.editorConfig = function( config ) {
+      // rest of config
+      config.extraPlugins = 'dragdrop';    <-- add the plugin
+    })
     
 
 Next, we need to supply a few configuation options depending on the backend service we're using. This is a simple javascript object consisting of 1. The name of the backend service, and 2. the settings it needs to function. 
 
-
+Currently Imgur and S3 are the two upload locations supported, but, since uploading files boils down to submitting a `POST` towards the general direction of a server, new backends are trivial to implement. 
 
 **Imgur:**
 
-  CKEDITOR.editorConfig = function( config ) {
-    // rest of config
-    config.extraPlugins = 'dragdrop';
-    
-    // configure the backend service and credentials
-    config.dragndropConfig = {
-        backend: 'imgur',
-        settings: {
-            clientId: 'YourImgurClientID'
-        }
-    }
-  });
+    CKEDITOR.editorConfig = function( config ) {
+      // rest of config
+      config.extraPlugins = 'dragdrop';
+      
+      // configure the backend service and credentials
+      config.dragndropConfig = {
+          backend: 'imgur',
+          settings: {
+              clientId: 'YourImgurClientID'
+          }
+      }
+    });
   
 **AWS S3:**
 
-  CKEDITOR.editorConfig = function( config ) {
-    // rest of config
-    config.extraPlugins = 'dragdrop';
-    
-    // configure the backend service and credentials
-    // aws requires a few extra.. 
-    config.dragndropConfig = {
-        backend: 's3',
-        settings: {
-            bucket: 'bucketname',
-            region: 'your-region',
-            accessKeyId: 'key',
-            secretAccessKey: 'secret-key'
-        }
-    };
-  }); 
+    CKEDITOR.editorConfig = function( config ) {
+      // rest of config
+      config.extraPlugins = 'dragdrop';
+      
+      // configure the backend service and credentials
+      // aws requires a few extra.. 
+      config.dragndropConfig = {
+          backend: 's3',
+          settings: {
+              bucket: 'bucketname',
+              region: 'your-region',
+              accessKeyId: 'key',
+              secretAccessKey: 'secret-key'
+          }
+      };
+    }); 
   
 **Note:** This, of course, exposes your S3 keys to the wild. Only use this if your users are trusted, and behind a private interface!
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-DragDropImageUploader can currently upload to one of two services: Imgur, or S3. You specify the backend 
-
-
-
-
-
-
-
-
-
-
 
 
 
