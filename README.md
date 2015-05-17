@@ -44,7 +44,7 @@ Currently Imgur and S3 are the two upload locations supported, but, since upload
       config.extraPlugins = 'dragdrop';
       
       // configure the backend service and credentials
-      config.dragndropConfig = {
+      config.dragdropConfig = {
           backend: 'imgur',
           settings: {
               clientId: 'YourImgurClientID'
@@ -60,7 +60,7 @@ Currently Imgur and S3 are the two upload locations supported, but, since upload
       
       // configure the backend service and credentials
       // aws requires a few extra.. 
-      config.dragndropConfig = {
+      config.dragdropConfig = {
           backend: 's3',
           settings: {
               bucket: 'bucketname',
