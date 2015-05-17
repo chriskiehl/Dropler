@@ -28,13 +28,13 @@ CKEDITOR.plugins.add( 'dragdrop', {
         function validateConfig() {
             var errorTemplate = 'DragDropUpload Error: ->';
             checkRequirement(
-                editor.config.hasOwnProperty('dragndropConfig'),
-                "Missing required dragndropConfig in CKEDITOR.config.js"
+                editor.config.hasOwnProperty('dragdropConfig'),
+                "Missing required dragdropConfig in CKEDITOR.config.js"
             );
 
-            var backend = backends[editor.config.dragndropConfig.backend];
+            var backend = backends[editor.config.dragdropConfig.backend];
 
-            var suppliedKeys = Object.keys(editor.config.dragndropConfig.settings);
+            var suppliedKeys = Object.keys(editor.config.dragdropConfig.settings);
             var requiredKeys = backend.required;
 
             var missing = requiredKeys.filter(function(key) {
@@ -48,7 +48,7 @@ CKEDITOR.plugins.add( 'dragdrop', {
 
         validateConfig();
 
-        var backend = backends[editor.config.dragndropConfig.backend];
+        var backend = backends[editor.config.dragdropConfig.backend];
         backend.init();
 
         function doNothing(e) { }
@@ -89,7 +89,7 @@ CKEDITOR.plugins.add( 'dragdrop', {
         }
 
         function uploadS3(file) {
-            var settings = editor.config.dragndropConfig.settings;
+            var settings = editor.config.dragdropConfig.settings;
             AWS.config.update({accessKeyId: settings.accessKeyId, secretAccessKey: settings.secretAccessKey});
             AWS.config.region = 'us-east-1';
 
@@ -105,9 +105,6 @@ CKEDITOR.plugins.add( 'dragdrop', {
                 });
             });
         };
-
-
-
 
         CKEDITOR.on('instanceReady', function() {
             var iframeBase = document.querySelector('iframe').contentDocument.querySelector('html');
