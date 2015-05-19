@@ -1,6 +1,6 @@
-# DragDropUpload
+#Dropler
 
-A small, lightweight (and free!) CKEditor plugin for uploading images via drag and drop.  
+Dropler is a small, lightweight (and free!) CKEditor plugin for uploading images via drag and drop.  
 
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/1408720/7672034/0c3de41e-fcb2-11e4-96f5-06cabfd7845d.gif" />
@@ -8,7 +8,7 @@ A small, lightweight (and free!) CKEditor plugin for uploading images via drag a
 
 It's like [SimpleUploads](http://ckeditor.com/addon/simpleuploads) but free! And with fewer features! 
 
-DropUploads currently supports Imgur and Amazon's S3 as storage locations.  
+Dropler currently supports Imgur and Amazon's S3 as storage locations.  
 
 ##Live Demo:
 
@@ -21,7 +21,7 @@ You can checkout a live demo here.
 
 Clone or download this respository and then follow the Manual Installation instructions from the official [CKEditor Documentation](http://docs.ckeditor.com/#!/guide/dev_plugins). Adding to CKEditor's Add-on repository pending. 
 
-The super short version: Copy the `DragDrop` folder to the `plugins` directory of ckeditor. 
+The super short version: Copy the `dropler` folder to the `plugins` directory of ckeditor. 
 
 ##Usage Instructions
 
@@ -29,7 +29,7 @@ First, add the plugin name to ckeditor's `extraPlugins` property inside of `conf
 
     CKEDITOR.editorConfig = function( config ) {
       // rest of config
-      config.extraPlugins = 'dragdrop';    <-- add the plugin
+      config.extraPlugins = 'dropler';    <-- add the plugin
     })
     
 
@@ -41,10 +41,10 @@ Currently Imgur and S3 are the two upload locations supported, but, since upload
 
     CKEDITOR.editorConfig = function( config ) {
       // rest of config
-      config.extraPlugins = 'dragdrop';
+      config.extraPlugins = 'dropler';
       
       // configure the backend service and credentials
-      config.dragdropConfig = {
+      config.droplerConfig = {
           backend: 'imgur',
           settings: {
               clientId: 'YourImgurClientID'
@@ -56,11 +56,11 @@ Currently Imgur and S3 are the two upload locations supported, but, since upload
 
     CKEDITOR.editorConfig = function( config ) {
       // rest of config
-      config.extraPlugins = 'dragdrop';
+      config.extraPlugins = 'dropler';
       
       // configure the backend service and credentials
       // aws requires a few extra.. 
-      config.dragdropConfig = {
+      config.droplerConfig = {
           backend: 's3',
           settings: {
               bucket: 'bucketname',
