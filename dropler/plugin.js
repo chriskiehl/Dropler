@@ -17,6 +17,11 @@ CKEDITOR.plugins.add( 'dropler', {
                     script.src = 'https://sdk.amazonaws.com/js/aws-sdk-2.1.26.min.js';
                     document.body.appendChild(script);
                 }
+            },
+            basic: {
+                upload: uploadBasic,
+                required: ['uploadUrl'],
+                init: function() {}
             }
         };
 
@@ -69,11 +74,19 @@ CKEDITOR.plugins.add( 'dropler', {
             editor.insertElement(elem);
         }
 
-        function uploadImgur(file) {
+        function addHeaders(xhttp, headers) {
+            for (var key in headers) {
+                if (headers.hasOwnProperty(key)) {
+                    xhttp.setRequestHeader(key, headers[key]);
+                }
+            }
+        }
+
+        function post(url, data, headers) {
             return new Promise(function(resolve, reject) {
                 var xhttp    = new XMLHttpRequest();
-                xhttp.open('POST', 'https://api.imgur.com/3/image');
-                xhttp.setRequestHeader('Authorization', 'Client-ID 81c0ab489a37e34');
+                xhttp.open('POST', url);
+                addHeaders(xhttp, headers);
                 xhttp.onreadystatechange = function () {
                     if (xhttp.readyState === 4) {
                         if (xhttp.status === 200) {
@@ -83,17 +96,24 @@ CKEDITOR.plugins.add( 'dropler', {
                         }
                     }
                 };
-                xhttp.send(file);
+                xhttp.send(data);
             });
+        }
+
+        function uploadBasic(file) {
+            var settings = editor.config.droplerConfig.settings;
+            return post(settings.uploadUrl, file, settings.headers);
+        }
+
+        function uploadImgur(file) {
+            var settings = editor.config.droplerConfig.settings;
+            return post('https://api.imgur.com/3/image', file, {'Authorization': settings.clientId});
         }
 
         function uploadS3(file) {
             var settings = editor.config.droplerConfig.settings;
             AWS.config.update({accessKeyId: settings.accessKeyId, secretAccessKey: settings.secretAccessKey});
             AWS.config.region = 'us-east-1';
-
-            console.log(settings);
-            console.log(AWS.config);
 
             var bucket = new AWS.S3({params: {Bucket: settings.bucket}});
             var params = {Key: file.name, ContentType: file.type, Body: file, ACL: "public-read"};
