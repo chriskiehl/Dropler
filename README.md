@@ -12,7 +12,7 @@ Dropler currently supports Imgur and Amazon's S3 as storage locations.
 
 ##Live Demo:
 
-You can checkout a live demo here.
+You can checkout a live demo [here](http://chriskiehl.github.io/Dropler/).
 
 
 --------
