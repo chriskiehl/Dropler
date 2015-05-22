@@ -19,6 +19,10 @@ You can checkout a live demo [here](http://chriskiehl.github.io/Dropler/).
 
 ##Install: 
 
+The easiest way to get Dropler is via Ckeditor's [Add On Repository](http://ckeditor.com/addon/dragdrop).
+
+Alternatively, you can install it anually straight from github. 
+
 Clone or download this respository and then follow the Manual Installation instructions from the official [CKEditor Documentation](http://docs.ckeditor.com/#!/guide/dev_plugins). Adding to CKEditor's Add-on repository pending. 
 
 The super short version: Copy the `dropler` folder to the `plugins` directory of ckeditor. 
