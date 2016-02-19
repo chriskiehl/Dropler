@@ -1,5 +1,17 @@
 #Dropler
 
+###Update:
+
+Hello, Internet! 
+
+This was something quickly cobbled together in an hour or so to scratch an itch on my blog's admin page. So, there's a lot of stuff it won't do, wasn't made to do, wasn't planned to do, and flat out shouldn't do (like exposing S3 keys to the wild!). With said itch having been scratched, work on this has come to an end. 
+
+In short: _It is not supported software!_
+
+Feel free to try it out or learn from the code. Maybe it'll work well for your needs, but if it doesn't, welp, you're on your own ^_^
+
+--------------
+
 Dropler is a small, lightweight (and free!) CKEditor plugin for uploading images via drag and drop.  
 
 <p align="center">
@@ -19,9 +31,7 @@ You can checkout a live demo [here](http://chriskiehl.github.io/Dropler/).
 
 ##Install: 
 
-The easiest way to get Dropler is via Ckeditor's [Add On Repository](http://ckeditor.com/addon/dragdrop).
-
-Alternatively, you can install it anually straight from github. 
+You can install it anually straight from github. 
 
 Clone or download this respository and then follow the Manual Installation instructions from the official [CKEditor Documentation](http://docs.ckeditor.com/#!/guide/dev_plugins). Adding to CKEditor's Add-on repository pending. 
 
