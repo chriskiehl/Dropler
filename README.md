@@ -85,7 +85,7 @@ Currently Imgur and S3 are the two upload locations supported, but, since upload
       };
     }); 
   
-**Note:** This, of course, exposes your S3 keys to the wild. So.. probably shouldn't use this outside of testing -- or for very highly trusted users. 
+**Note:** This, of course, exposes your S3 keys to the wild. So.. probably shouldn't use this outside of testing -- or for very highly trusted users (eg. yourself). 
 
 
 
